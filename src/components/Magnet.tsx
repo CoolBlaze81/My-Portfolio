@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import type { ReactNode, CSSProperties } from 'react';
+import { motion } from 'framer-motion';
 
 interface MagnetProps {
   children: ReactNode;
@@ -28,8 +29,21 @@ export default function Magnet({
   const ref = useRef<HTMLDivElement>(null);
   const [isActive, setIsActive] = useState(false);
   const [translate, setTranslate] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+
+  checkMobile();
+  window.addEventListener('resize', checkMobile);
+
+  return () => window.removeEventListener('resize', checkMobile);
+}, []);
 
   useEffect(() => {
+    if (isMobile) return;
     const handleWindowMouseMove = (e: MouseEvent) => {
       const el = ref.current;
       if (!el) return;
@@ -55,19 +69,39 @@ export default function Magnet({
 
     window.addEventListener('mousemove', handleWindowMouseMove, { passive: true });
     return () => window.removeEventListener('mousemove', handleWindowMouseMove);
-  }, [padding, strength]);
+  }, [padding, strength, isMobile]);
 
   return (
     <div ref={ref} className={className} style={style}>
-      <div
-        style={{
-          transform: `translate3d(${translate.x}px, ${translate.y}px, 0)`,
-          transition: isActive ? activeTransition : inactiveTransition,
-          willChange: 'transform',
-        }}
-      >
-        {children}
-      </div>
+      {isMobile ? (
+  <motion.div
+    animate={{
+      y: [0, -8, 0],
+      rotate: [-1, 1, -1],
+      scale: [1, 1.015, 1],
+    }}
+    transition={{
+      duration: 5,
+      repeat: Infinity,
+      ease: 'easeInOut',
+    }}
+    style={{
+      willChange: 'transform',
+    }}
+  >
+    {children}
+  </motion.div>
+) : (
+  <div
+    style={{
+      transform: `translate3d(${translate.x}px, ${translate.y}px, 0)`,
+      transition: isActive ? activeTransition : inactiveTransition,
+      willChange: 'transform',
+    }}
+  >
+    {children}
+  </div>
+)}
     </div>
   );
 }
