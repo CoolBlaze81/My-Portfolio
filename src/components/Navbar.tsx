@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import FadeIn from './FadeIn';
 
@@ -9,6 +10,7 @@ const NAV_LINKS = [
 ];
 
 export default function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <FadeIn delay={0} y={-20} as="header">
       <div className="sticky top-0 z-50 bg-[#0C0C0C] border-b border-white/10">
@@ -20,7 +22,7 @@ export default function Navbar() {
             MannanEditsIt
           </Link>
 
-          <div className="flex items-center gap-5 sm:gap-8 md:gap-10">
+          <div className="hidden md:flex items-center gap-10">
             {NAV_LINKS.map((link) =>
               link.to.startsWith('/#') ? (
                 <Link
@@ -46,7 +48,40 @@ export default function Navbar() {
             )}
           </div>
         </nav>
+        {menuOpen && (
+  <div className="md:hidden bg-[#0C0C0C] border-t border-white/10 flex flex-col items-center py-6 gap-6">
+
+    {NAV_LINKS.map((link) =>
+      link.to.startsWith('/#') ? (
+        <Link
+          key={link.label}
+          to={link.to}
+          onClick={() => setMenuOpen(false)}
+          className="text-white uppercase tracking-wider"
+        >
+          {link.label}
+        </Link>
+      ) : (
+        <NavLink
+          key={link.label}
+          to={link.to}
+          onClick={() => setMenuOpen(false)}
+          className="text-white uppercase tracking-wider"
+        >
+          {link.label}
+        </NavLink>
+      )
+    )}
+
+  </div>
+)}
       </div>
+      <button
+      className="md:hidden text-white text-3xl"
+      onClick={() => setMenuOpen(!menuOpen)}
+      >
+      {menuOpen ? "✕" : "☰"}
+      </button>
     </FadeIn>
   );
 }
