@@ -14,9 +14,9 @@ export default function HeroSection() {
     style={{ overflowX: 'clip' }}
   >
       {/* Hero heading */}
-      <div className="overflow-hidden mt-10 sm:mt-8 md:mt-4">
+      <div className="overflow-hidden mt-4 sm:mt-8 md:mt-4">
         <FadeIn delay={0.1} y={40}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[14vw] sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[12vw] sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
             Hi, i&apos;m mannan
           </h1>
         </FadeIn>
@@ -33,14 +33,14 @@ export default function HeroSection() {
           <img
             src={PORTRAIT_URL}
             alt="Mannan, Video Editor Portrait"
-            className="w-[4000px] h-auto select-none pointer-events-none"
+            className="w-full h-auto select-none pointer-events-none"
             draggable={false}
           />
         </FadeIn>
       </Magnet>
 
       {/* Bottom bar */}
-      <div className="mt-auto flex justify-between items-end px-6 md:px-10 pb-7 sm:pb-8 md:pb-10 relative z-20">
+      <div className="mt-auto flex justify-between items-end px-6 md:px-10 pb-4 sm:pb-8 md:pb-10 relative z-20">
         <FadeIn delay={0.3} y={20}>
           <p
             className="text-[#D7E2EA] font-light uppercase tracking-wide leading-snug max-w-[160px] sm:max-w-[220px] md:max-w-[260px]"
