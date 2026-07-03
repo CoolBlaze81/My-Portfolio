@@ -76,12 +76,12 @@ useEffect(() => {
       {isMobile ? (
   <motion.div
     animate={{
-      y: [0, -8, 0],
-      rotate: [-1, 1, -1],
-      scale: [1, 1.015, 1],
-    }}
+  y: [0, -15, 0],
+  rotate: [-2, 2, -2],
+  scale: [1, 1.02, 1],
+}}
     transition={{
-      duration: 5,
+      duration: 6.5,
       repeat: Infinity,
       ease: 'easeInOut',
     }}

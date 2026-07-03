@@ -1,6 +1,7 @@
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
+import { motion } from 'framer-motion';
 
 
 
@@ -22,22 +23,76 @@ export default function HeroSection() {
         </FadeIn>
       </div>
       {/* Portrait */}
-      <Magnet
-        padding={1500}
-        strength={5}
-        activeTransition="transform 0.3s ease-out"
-        inactiveTransition="transform 0.6s ease-in-out"
-        className="absolute left-1/2 -translate-x-1/2 z-10 top-[46%] md:top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 w-[88vw] sm:w-[360px] md:w-[440px] lg:w-[1000px]"
-      >
-        <FadeIn delay={0.5} y={30}>
-          <img
-            src={PORTRAIT_URL}
-            alt="Mannan, Video Editor Portrait"
-            className="w-full h-auto select-none pointer-events-none"
-            draggable={false}
-          />
-        </FadeIn>
-      </Magnet>
+      <motion.div
+  className="md:hidden"
+  animate={{
+    y: [0, -10, 0],
+    rotate: [-1, 1, -1],
+    scale: [1, 1.015, 1],
+  }}
+  transition={{
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+>
+  <Magnet
+    padding={1500}
+    strength={5}
+    activeTransition="transform 0.3s ease-out"
+    inactiveTransition="transform 0.6s ease-in-out"
+    className="
+absolute
+left-1/2
+-translate-x-1/2
+bottom-0
+z-10
+
+w-[300px]
+sm:w-[420px]
+md:w-[560px]
+lg:w-[700px]
+xl:w-[900px]
+"
+  >
+    <FadeIn delay={0.5} y={30}>
+      <img
+        src={PORTRAIT_URL}
+        alt="Mannan, Video Editor Portrait"
+        className="w-full h-auto select-none pointer-events-none"
+        draggable={false}
+      />
+    </FadeIn>
+  </Magnet>
+  <Magnet
+  padding={1500}
+  strength={5}
+  activeTransition="transform 0.3s ease-out"
+  inactiveTransition="transform 0.6s ease-in-out"
+  className="
+hidden md:block
+absolute
+left-1/2
+-translate-x-1/2
+bottom-0
+z-10
+
+w-[560px]
+lg:w-[700px]
+xl:w-[900px]
+"
+>
+  <FadeIn delay={0.5} y={30}>
+    <img
+      src={PORTRAIT_URL}
+      alt="Mannan, Video Editor Portrait"
+      className="w-full h-auto select-none pointer-events-none"
+      draggable={false}
+    />
+  </FadeIn>
+</Magnet>
+  
+</motion.div>
 
       {/* Bottom bar */}
       <div className="mt-auto flex justify-between items-end px-6 md:px-10 pb-4 sm:pb-8 md:pb-10 relative z-20">
