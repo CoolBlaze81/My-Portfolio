@@ -1,7 +1,7 @@
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
-import { motion } from 'framer-motion';
+
 
 
 
@@ -13,14 +13,14 @@ export default function HeroSection() {
     <section
     className="
 relative
-h-[82vh]
+min-h-[82vh]
 sm:h-[90vh]
 md:h-[calc(100vh-84px)]
 flex
 flex-col
-overflow-hidden
+overflow-x-clip
+overflow-y-visible
 "
-    style={{ overflowX: 'clip' }}
   >
       {/* Hero heading */}
       <div className="overflow-hidden mt-2 sm:mt-8 md:mt-4">
@@ -61,7 +61,7 @@ absolute
 left-1/2
 -translate-x-1/2
 
-z-10
+z-30
 
 bottom-28
 sm:bottom-14

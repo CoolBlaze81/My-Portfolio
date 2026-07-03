@@ -18,7 +18,19 @@ export default function AboutSection() {
   return (
     <section
       id="about"
-      className="relative min-h-screen px-5 md:px-10 py-20 flex items-center justify-center overflow-hidden"
+      className="
+relative
+min-h-screen
+px-5
+md:px-10
+py-20
+flex
+items-center
+justify-center
+
+overflow-visible
+md:overflow-hidden
+"
     >
       {/* Decorative corner images */}
       <FadeIn
@@ -28,8 +40,10 @@ export default function AboutSection() {
         duration={0.9}
         className="
 absolute
--top-2 md:top-[4%]
--left-8 md:left-[4%]
+top-4
+left-2
+md:top-[4%]
+md:left-[4%]
 w-[110px] md:w-[210px]
 "
       >
@@ -43,8 +57,10 @@ w-[110px] md:w-[210px]
         duration={0.9}
         className="
 absolute
-bottom-16 md:bottom-[8%]
--left-8 md:left-[10%]
+bottom-10
+left-2
+md:bottom-[8%]
+md:left-[10%]
 w-[95px] md:w-[180px]
 "
       >
@@ -58,8 +74,10 @@ w-[95px] md:w-[180px]
         duration={0.9}
         className="
 absolute
--top-3 md:top-[4%]
--right-8 md:right-[4%]
+top-4
+right-12
+md:top-[4%]
+md:right-[4%]]
 w-[110px] md:w-[210px]
 "
       >
@@ -71,7 +89,10 @@ w-[110px] md:w-[210px]
         x={80}
         y={0}
         duration={0.9}
-        className="absolute bottom-14 right-8 sm:right-[6%] md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]"
+        className="absolute bottom-10
+right-2
+md:bottom-[8%]
+md:right-[10%] w-[130px] sm:w-[170px] md:w-[220px]"
       >
         <img src={GROUP_URL} alt="Decorative 3D group" className="w-full h-auto" />
       </FadeIn>
