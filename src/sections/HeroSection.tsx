@@ -11,13 +11,13 @@ const PORTRAIT_URL =
 export default function HeroSection() {
   return (
     <section
-    className="relative h-[78vh] md:h-[calc(100vh-84px)] flex flex-col"
+    className="relative h-[72vh] md:h-[calc(100vh-84px)] flex flex-col"
     style={{ overflowX: 'clip' }}
   >
       {/* Hero heading */}
       <div className="overflow-hidden mt-4 sm:mt-8 md:mt-4">
         <FadeIn delay={0.1} y={40}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[22vw] sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-normal md:whitespace-nowrap w-full text-[15vw] sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
             Hi, i&apos;m mannan
           </h1>
         </FadeIn>
@@ -28,7 +28,7 @@ export default function HeroSection() {
   strength={5}
   activeTransition="transform 0.3s ease-out"
   inactiveTransition="transform 0.6s ease-in-out"
-  className="absolute left-1/2 -translate-x-1/2 z-10 bottom-0 w-[300px] sm:w-[420px] md:w-[560px] lg:w-[700px] xl:w-[900px]"
+  className="absolute left-1/2 -translate-x-1/2 z-10 bottom-8 md:bottom-0 w-[300px] sm:w-[420px] md:w-[560px] lg:w-[700px] xl:w-[900px]"
 >
   <FadeIn delay={0.5} y={30}>
     <img
