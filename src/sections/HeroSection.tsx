@@ -17,70 +17,18 @@ export default function HeroSection() {
       {/* Hero heading */}
       <div className="overflow-hidden mt-4 sm:mt-8 md:mt-4">
         <FadeIn delay={0.1} y={40}>
-          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
+          <h1 className="hero-heading font-black uppercase tracking-tight leading-none whitespace-nowrap w-full text-[22vw] sm:text-[15vw] md:text-[16vw] lg:text-[13.97vw]">
             Hi, i&apos;m mannan
           </h1>
         </FadeIn>
       </div>
       {/* Portrait */}
-      <motion.div
-  className="md:hidden"
-  animate={{
-    y: [0, -10, 0],
-    rotate: [-1, 1, -1],
-    scale: [1, 1.015, 1],
-  }}
-  transition={{
-    duration: 5,
-    repeat: Infinity,
-    ease: "easeInOut",
-  }}
->
-  <Magnet
-    padding={1500}
-    strength={5}
-    activeTransition="transform 0.3s ease-out"
-    inactiveTransition="transform 0.6s ease-in-out"
-    className="
-absolute
-left-1/2
--translate-x-1/2
-bottom-0
-z-10
-
-w-[300px]
-sm:w-[420px]
-md:w-[560px]
-lg:w-[700px]
-xl:w-[900px]
-"
-  >
-    <FadeIn delay={0.5} y={30}>
-      <img
-        src={PORTRAIT_URL}
-        alt="Mannan, Video Editor Portrait"
-        className="w-full h-auto select-none pointer-events-none"
-        draggable={false}
-      />
-    </FadeIn>
-  </Magnet>
-  <Magnet
+      <Magnet
   padding={1500}
   strength={5}
   activeTransition="transform 0.3s ease-out"
   inactiveTransition="transform 0.6s ease-in-out"
-  className="
-hidden md:block
-absolute
-left-1/2
--translate-x-1/2
-bottom-0
-z-10
-
-w-[560px]
-lg:w-[700px]
-xl:w-[900px]
-"
+  className="absolute left-1/2 -translate-x-1/2 z-10 bottom-0 w-[300px] sm:w-[420px] md:w-[560px] lg:w-[700px] xl:w-[900px]"
 >
   <FadeIn delay={0.5} y={30}>
     <img
@@ -91,8 +39,6 @@ xl:w-[900px]
     />
   </FadeIn>
 </Magnet>
-  
-</motion.div>
 
       {/* Bottom bar */}
       <div className="mt-auto flex justify-between items-end px-6 md:px-10 pb-4 sm:pb-8 md:pb-10 relative z-20">
