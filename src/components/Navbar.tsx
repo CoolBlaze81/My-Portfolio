@@ -14,7 +14,7 @@ export default function Navbar() {
   return (
     <FadeIn delay={0} y={-20} as="header">
       <div className="sticky top-0 z-50 bg-[#0C0C0C] border-b border-white/10">
-        <nav className="flex justify-between items-center px-6 md:px-10 py-4 md:py-5">
+        <nav className="flex items-center justify-between px-6 md:px-10 py-4 md:py-5">
           <Link
             to="/"
             className="hero-heading font-black uppercase tracking-tight text-lg md:text-2xl transition-opacity duration-200 hover:opacity-80"
@@ -77,11 +77,11 @@ export default function Navbar() {
 )}
       </div>
       <button
-      className="md:hidden text-white text-3xl"
-      onClick={() => setMenuOpen(!menuOpen)}
-      >
-      {menuOpen ? "✕" : "☰"}
-      </button>
+  className="ml-auto md:hidden text-white text-3xl"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
     </FadeIn>
   );
 }
