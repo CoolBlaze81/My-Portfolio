@@ -64,7 +64,7 @@ left-1/2
 z-10
 
 bottom-28
-sm:bottom-15
+sm:bottom-14
 md:bottom-0
 
 w-[420px]
