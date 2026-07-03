@@ -47,6 +47,12 @@ export default function Navbar() {
               )
             )}
           </div>
+          <button
+  className="ml-auto md:hidden text-white text-3xl"
+  onClick={() => setMenuOpen(!menuOpen)}
+>
+  {menuOpen ? "✕" : "☰"}
+</button>
         </nav>
         {menuOpen && (
   <div className="md:hidden bg-[#0C0C0C] border-t border-white/10 flex flex-col items-center py-6 gap-6">
@@ -76,12 +82,6 @@ export default function Navbar() {
   </div>
 )}
       </div>
-      <button
-  className="ml-auto md:hidden text-white text-3xl"
-  onClick={() => setMenuOpen(!menuOpen)}
->
-  {menuOpen ? "✕" : "☰"}
-</button>
     </FadeIn>
   );
 }
