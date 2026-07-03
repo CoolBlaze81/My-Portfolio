@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Link, NavLink } from 'react-router-dom';
 import FadeIn from './FadeIn';
 
@@ -17,7 +18,18 @@ export default function Navbar() {
         <nav className="flex items-center justify-between px-6 md:px-10 py-4 md:py-5">
           <Link
             to="/"
-            className="hero-heading font-black uppercase tracking-tight text-lg md:text-2xl transition-opacity duration-200 hover:opacity-80"
+            className="
+hero-heading
+font-black
+uppercase
+tracking-tight
+text-base
+sm:text-lg
+md:text-2xl
+transition-opacity
+duration-200
+hover:opacity-80
+"
           >
             MannanEditsIt
           </Link>
@@ -48,39 +60,83 @@ export default function Navbar() {
             )}
           </div>
           <button
-  className="ml-auto md:hidden text-white text-3xl"
   onClick={() => setMenuOpen(!menuOpen)}
+  className="
+  md:hidden
+  flex
+  items-center
+  justify-center
+  w-11
+  h-11
+  text-white
+  text-4xl
+  transition-all
+  duration-300
+  hover:opacity-80
+  "
 >
   {menuOpen ? "✕" : "☰"}
 </button>
         </nav>
-        {menuOpen && (
-  <div className="md:hidden bg-[#0C0C0C] border-t border-white/10 flex flex-col items-center py-6 gap-6">
-
-    {NAV_LINKS.map((link) =>
-      link.to.startsWith('/#') ? (
-        <Link
-          key={link.label}
-          to={link.to}
-          onClick={() => setMenuOpen(false)}
-          className="text-white uppercase tracking-wider"
-        >
-          {link.label}
-        </Link>
-      ) : (
-        <NavLink
-          key={link.label}
-          to={link.to}
-          onClick={() => setMenuOpen(false)}
-          className="text-white uppercase tracking-wider"
-        >
-          {link.label}
-        </NavLink>
-      )
-    )}
-
-  </div>
-)}
+        <AnimatePresence>
+  {menuOpen && (
+    <motion.div
+      initial={{ opacity: 0, y: -25 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: -25 }}
+      transition={{ duration: 0.3 }}
+      className="
+      md:hidden
+      absolute
+      left-0
+      top-full
+      w-full
+      bg-[#0C0C0C]/95
+      backdrop-blur-xl
+      border-t
+      border-white/10
+      "
+    >
+      <div className="flex flex-col items-center py-8 gap-8">
+        {NAV_LINKS.map((link) =>
+          link.to.startsWith('/#') ? (
+            <Link
+              key={link.label}
+              to={link.to}
+              onClick={() => setMenuOpen(false)}
+              className="
+              text-white
+              uppercase
+              tracking-widest
+              text-lg
+              hover:opacity-70
+              transition
+              "
+            >
+              {link.label}
+            </Link>
+          ) : (
+            <NavLink
+              key={link.label}
+              to={link.to}
+              onClick={() => setMenuOpen(false)}
+              className="
+              text-white
+              uppercase
+              tracking-widest
+              text-lg
+              hover:opacity-70
+              transition
+              "
+            >
+              {link.label}
+            </NavLink>
+          )
+        )}
+      </div>
+    </motion.div>
+  )}
+</AnimatePresence>
       </div>
     </FadeIn>
   );
