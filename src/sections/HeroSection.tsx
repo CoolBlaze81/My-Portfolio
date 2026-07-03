@@ -1,6 +1,8 @@
 import FadeIn from '../components/FadeIn';
 import Magnet from '../components/Magnet';
 import ContactButton from '../components/ContactButton';
+import GyroFace from '../components/GyroFace';
+
 
 const PORTRAIT_URL =
   'https://i.postimg.cc/1t9YnWTT/Jul-2-2026-05-54-33-PM.png'
@@ -28,12 +30,14 @@ export default function HeroSection() {
         className="absolute left-1/2 -translate-x-1/2 z-10 top-1/2 -translate-y-1/2 sm:top-auto sm:translate-y-0 sm:bottom-0 w-[280px] sm:w-[360px] md:w-[440px] lg:w-[1000px]"
       >
         <FadeIn delay={0.5} y={30}>
-          <img
+          <GyroFace><img
             src={PORTRAIT_URL}
             alt="Mannan, Video Editor Portrait"
             className="w-[4000px] h-auto select-none pointer-events-none"
             draggable={false}
           />
+          </GyroFace>
+          
         </FadeIn>
       </Magnet>
 
