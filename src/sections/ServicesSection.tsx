@@ -8,7 +8,7 @@ export default function ServicesSection() {
         className="text-[#0C0C0C] font-black uppercase text-center mb-16 sm:mb-20 md:mb-28"
         style={{ fontSize: 'clamp(3rem, 12vw, 160px)' }}
       >
-        Services
+        Expertise
       </h2>
 
       <div className="max-w-5xl mx-auto">
