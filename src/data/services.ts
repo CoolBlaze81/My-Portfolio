@@ -33,6 +33,6 @@ export const services: Service[] = [
     number: '05',
     name: 'Content Management (Coming Soon)',
     description:
-      'End-to-end content planning, organization, and publishing support for creators and growing brands.',
+      'End-to-end content planning, organization, and publishing support for creators and brands.',
   },
 ];
